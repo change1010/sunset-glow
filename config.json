@@ -1,0 +1,37 @@
+{
+  "location": {
+    "name": "武汉",
+    "spot": "wuhan",
+    "latitude": 30.544,
+    "longitude": 114.302
+  },
+  "thresholds": {
+    "push_min_quality": 60,
+    "advance_fire_quality": 85
+  },
+  "schedule": {
+    "push_window_start": "05:00",
+    "push_window_end": "21:00",
+    "stop_before_sunset_minutes": 30,
+    "alert_earliest_hours_before_sunset": 4.0,
+    "alert_latest_minutes_before_sunset": 45
+  },
+  "channels": {
+    "wechat": {
+      "enabled": true,
+      "provider": "pushplus",
+      "token": "",
+      "_provider_help": "provider 填 pushplus 或 serverchan。PushPlus 推荐填【消息token】（官方定位就是给第三方脚本用的，可创建多个、可随时删除重建），用户token 也能用；两者填在 token 字段都有效",
+      "_token_help": "不要在这里填 token。优先读环境变量 PUSHPLUS_TOKEN，其次读 local_secrets.json。"
+    }
+  },
+  "advanced": {
+    "announce_advance_fire_day": true,
+    "crosscheck_models": [
+      "ecmwf_ifs025",
+      "gfs_seamless",
+      "cma_grapes_global"
+    ],
+    "crosscheck_disagreement_spread": 40
+  }
+}
